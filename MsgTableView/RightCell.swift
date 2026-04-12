@@ -13,15 +13,22 @@ class RightCell: UITableViewCell {
     @IBOutlet weak var mainView: UIView!
 
     override func prepareForReuse() {
-        super.prepareForReuse()
-        mainView.layer.mask = nil
-    }
+          super.prepareForReuse()
+          mainView.layer.sublayers?.filter { $0.name == "bubbleLayer" }.forEach { $0.removeFromSuperlayer() }
+          mainView.layer.mask = nil
+      }
+
+      override func layoutSubviews() {
+          super.layoutSubviews()
+          mainView.applyRightBubble()
+      }
 
     func configure(text: String) {
         lblMsg.text = text
-
-        DispatchQueue.main.async {
-            self.mainView.applyRightBubble()
-        }
+        mainView.backgroundColor = .secondarySystemGroupedBackground
+        mainView.clipsToBounds = false
+        mainView.layer.masksToBounds = false
+        contentView.clipsToBounds = false
+        self.clipsToBounds = false
     }
 }

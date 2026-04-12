@@ -26,7 +26,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auY-Kb-jVZ">
-                                <rect key="frame" x="5" y="34" width="21.333333333333332" height="21"/>
+                                <rect key="frame" x="7.9999999999999982" y="34" width="21.333333333333329" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9M6-gc-jOF"/>
                                 </constraints>
@@ -35,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Jqe-Uh-jk7">
-                                <rect key="frame" x="31.333333333333314" y="34.333333333333329" width="15" height="11"/>
+                                <rect key="frame" x="31.333333333333314" y="37.333333333333329" width="15" height="11"/>
                                 <color key="tintColor" red="0.0" green="0.50196078430000002" blue="0.0" alpha="0.75" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="USN-dL-0k6"/>
@@ -45,13 +46,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.94117647059999998" green="0.96862745100000003" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="auY-Kb-jVZ" firstAttribute="leading" secondItem="yyK-qo-9oE" secondAttribute="leading" id="Bwu-ma-8st"/>
+                            <constraint firstItem="Jqe-Uh-jk7" firstAttribute="leading" secondItem="auY-Kb-jVZ" secondAttribute="trailing" constant="2" id="1QQ-xC-sym"/>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="320" id="HLo-Ue-8in"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="auY-Kb-jVZ" secondAttribute="bottom" id="IOl-3L-9cN"/>
                             <constraint firstItem="auY-Kb-jVZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yyK-qo-9oE" secondAttribute="bottom" constant="8" symbolic="YES" id="Ikv-Cj-kHo"/>
                             <constraint firstItem="yyK-qo-9oE" firstAttribute="leading" secondItem="AW1-Z4-8nz" secondAttribute="leading" constant="5" id="Lib-sf-FRe"/>
                             <constraint firstAttribute="bottom" secondItem="auY-Kb-jVZ" secondAttribute="bottom" id="P4x-MC-Akf"/>
-                            <constraint firstItem="Jqe-Uh-jk7" firstAttribute="centerY" secondItem="auY-Kb-jVZ" secondAttribute="centerY" constant="-5" id="Qmm-sc-D6f"/>
+                            <constraint firstItem="Jqe-Uh-jk7" firstAttribute="centerY" secondItem="auY-Kb-jVZ" secondAttribute="centerY" constant="-2" id="Qmm-sc-D6f"/>
                             <constraint firstItem="yyK-qo-9oE" firstAttribute="top" secondItem="AW1-Z4-8nz" secondAttribute="top" constant="5" id="TcU-8P-erm"/>
                             <constraint firstItem="Jqe-Uh-jk7" firstAttribute="trailing" secondItem="yyK-qo-9oE" secondAttribute="trailing" id="feR-cP-10H"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" id="p3e-Fd-iLq"/>

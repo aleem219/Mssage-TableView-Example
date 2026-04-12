@@ -15,7 +15,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         registerTableCell()
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 60
         observeAppActiveState()
     }
 }
@@ -57,17 +56,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row % 2 != 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MsgCell", for: indexPath) as! MsgCell
             cell.selectionStyle = .none
-            cell.imgPerson.layer.cornerRadius = cell.imgPerson.frame.height / 2
-            cell.imgPerson.layer.borderWidth = 1
-            cell.imgPerson.layer.borderColor = UIColor.systemPink.cgColor
-            cell.lblMsg.text = "Left Side Abdul Aleem Usmani"
+            cell.lblMsg.text = "Left Side Abdul Aleem Usmani "
+            cell.configure(text: "Left Side Abdul Aleem Usmani Left Side Abdul Aleem Usmani ")
             
             return cell
         } else {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "RightCell", for: indexPath) as! RightCell
-            cell.configure(text: "Right Side Ayaaz Ahmad Usmani")
             cell.selectionStyle = .none
+            cell.configure(text: "Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani ")
             return cell
         }
     }
@@ -75,7 +72,5 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
-  
 }
 

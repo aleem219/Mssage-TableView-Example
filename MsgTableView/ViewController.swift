@@ -49,7 +49,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 25
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,7 +64,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "RightCell", for: indexPath) as! RightCell
             cell.selectionStyle = .none
-            cell.configure(text: "Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani ")
+            cell.configure(text: "Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani Right Side Ayaaz Ahmad Usmani ")
             return cell
         }
     }

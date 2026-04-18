@@ -3,7 +3,9 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,31 +18,80 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Jv-t3-K9R">
-                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="118" width="393" height="649"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="DhO-VU-V98"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="r7N-Af-UKA"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xai-TO-9dX">
+                                <rect key="frame" x="16" y="777" width="361" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbK-4n-hHo">
+                                        <rect key="frame" x="314" y="0.0" width="45" height="45"/>
+                                        <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.0" alpha="0.39554014900000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="cOF-mV-7vF"/>
+                                            <constraint firstAttribute="height" constant="45" id="lG3-4J-X2e"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.0" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <imageReference key="image" image="paperplane.circle.fill" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnSendAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y61-DF-v9O"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SPE-8M-DGG">
+                                        <rect key="frame" x="16" y="4" width="296" height="37"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.0" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="SPE-8M-DGG" firstAttribute="leading" secondItem="Xai-TO-9dX" secondAttribute="leading" constant="16" id="0ki-XI-e4a"/>
+                                    <constraint firstAttribute="trailing" secondItem="DbK-4n-hHo" secondAttribute="trailing" constant="2" id="9fO-7I-7M1"/>
+                                    <constraint firstAttribute="height" constant="45" id="ZYv-V7-3fA"/>
+                                    <constraint firstItem="SPE-8M-DGG" firstAttribute="top" secondItem="Xai-TO-9dX" secondAttribute="top" constant="4" id="aEE-5q-xwg"/>
+                                    <constraint firstAttribute="bottom" secondItem="SPE-8M-DGG" secondAttribute="bottom" constant="4" id="bPh-0Q-obu"/>
+                                    <constraint firstItem="DbK-4n-hHo" firstAttribute="leading" secondItem="SPE-8M-DGG" secondAttribute="trailing" constant="2" id="iVM-DM-OSD"/>
+                                    <constraint firstItem="DbK-4n-hHo" firstAttribute="centerY" secondItem="SPE-8M-DGG" secondAttribute="centerY" id="lE4-au-TPb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.85098039219999999" green="0.90980392160000001" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="3Jv-t3-K9R" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3t6-TW-oEM"/>
+                            <constraint firstItem="Xai-TO-9dX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="4y7-rj-jW3"/>
                             <constraint firstItem="3Jv-t3-K9R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Abx-yB-tjs"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Jv-t3-K9R" secondAttribute="bottom" id="lvz-UR-dUl"/>
+                            <constraint firstAttribute="bottom" secondItem="Xai-TO-9dX" secondAttribute="bottom" constant="30" id="EEa-Aq-ymS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xai-TO-9dX" secondAttribute="trailing" constant="16" id="Ovi-m9-QzJ"/>
+                            <constraint firstItem="Xai-TO-9dX" firstAttribute="top" secondItem="3Jv-t3-K9R" secondAttribute="bottom" constant="10" id="nAx-Dc-lqJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Jv-t3-K9R" secondAttribute="trailing" id="obl-XE-e22"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ggZ-ba-QC4"/>
                     <connections>
+                        <outlet property="bottomView" destination="Xai-TO-9dX" id="fuw-Fo-uAU"/>
+                        <outlet property="bottomViewHeightConst" destination="ZYv-V7-3fA" id="gqR-Gz-aGV"/>
+                        <outlet property="btnSend" destination="DbK-4n-hHo" id="Kdq-Gv-jHC"/>
+                        <outlet property="msgTextView" destination="SPE-8M-DGG" id="j6b-Sp-Pli"/>
                         <outlet property="tableView" destination="3Jv-t3-K9R" id="YkD-Tw-AL0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="601" y="-232"/>
+            <point key="canvasLocation" x="600.76335877862596" y="-232.3943661971831"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Iok-Ux-aXM">
@@ -60,4 +111,10 @@
             <point key="canvasLocation" x="-94" y="-232"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="paperplane.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

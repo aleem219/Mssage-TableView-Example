@@ -11,32 +11,67 @@ class MsgCell: UITableViewCell {
     @IBOutlet weak var lblMsg: UILabel!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var imgPerson: UIImageView!
-    
+ 
+    private var didFixConstraints = false
+    private var maxWidthConstraint: NSLayoutConstraint?
+ 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
+        fixConstraintsIfNeeded()
+    }
+ 
     override func prepareForReuse() {
-          super.prepareForReuse()
-          mainView.layer.sublayers?.filter { $0.name == "bubbleLayer" }.forEach { $0.removeFromSuperlayer() }
-          mainView.layer.mask = nil
-      }
-
-      override func layoutSubviews() {
-          super.layoutSubviews()
-          mainView.applyLeftBubble()
-      }
-    
-    
+        super.prepareForReuse()
+        mainView.layer.sublayers?.filter { $0.name == "bubbleLayer" }.forEach { $0.removeFromSuperlayer() }
+        mainView.layer.mask = nil
+    }
+ 
+    override func layoutSubviews() {
+        maxWidthConstraint?.constant = UIScreen.main.bounds.width * 0.75
+        super.layoutSubviews()
+        mainView.applyLeftBubble()
+    }
+    private func fixConstraintsIfNeeded() {
+        guard !didFixConstraints else { return }
+        didFixConstraints = true
+ 
+        let toRemove = contentView.constraints.filter {
+            ($0.firstItem as? UIView) == mainView || ($0.secondItem as? UIView) == mainView
+        }
+        NSLayoutConstraint.deactivate(toRemove)
+ 
+        let toRemoveSelf = self.constraints.filter {
+            ($0.firstItem as? UIView) == mainView || ($0.secondItem as? UIView) == mainView
+        }
+        NSLayoutConstraint.deactivate(toRemoveSelf)
+ 
+        mainView.translatesAutoresizingMaskIntoConstraints = false
+        let leading = mainView.leadingAnchor.constraint(equalTo: imgPerson.trailingAnchor, constant: 8)
+        let top = mainView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4)
+        let bottom = mainView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4)
+        let trailingFloat = mainView.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -60)
+ 
+        let maxWidth = mainView.widthAnchor.constraint(lessThanOrEqualToConstant: UIScreen.main.bounds.width * 0.75)
+        maxWidthConstraint = maxWidth
+ 
+        NSLayoutConstraint.activate([leading, top, bottom, trailingFloat, maxWidth])
+ 
+        mainView.setContentHuggingPriority(.required, for: .horizontal)
+        lblMsg.setContentCompressionResistancePriority(.required, for: .horizontal)
+        lblMsg.numberOfLines = 0
+    }
+ 
     func configure(text: String) {
-        lblMsg.text = text
         mainView.backgroundColor = .secondarySystemGroupedBackground
-        
         mainView.clipsToBounds = false
         mainView.layer.masksToBounds = false
         contentView.clipsToBounds = false
         self.clipsToBounds = false
-        
         imgPerson.layer.cornerRadius = imgPerson.frame.height / 2
         imgPerson.layer.borderWidth = 1
         imgPerson.layer.borderColor = UIColor.systemPink.cgColor
     }
-
-    
 }
